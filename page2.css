@@ -1,0 +1,28 @@
+/* Ensure Inter font is used for the widget content */
+.sticky-widget * {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom animation for a subtle glow on the button */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 0px #1e40af; /* Dark blue */
+    }
+    50% {
+        box-shadow: 0 0 15px #3b82f6, 0 0 25px #1d4ed8; /* Brighter blue glow */
+    }
+}
+
+/* Hides the default arrow for <details> summary */
+.widget-details > summary::marker,
+.widget-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Sets the dark background color and ensures content fills the screen */
+body {
+    background-color: #111827; 
+    color: #f3f4f6;
+    margin: 0; 
+    min-height: 100vh; /* Ensures the page is at least full screen height */
+}

@@ -1,4 +1,14 @@
 class KhmerCultureSite {
+    // Utility to safely encode HTML entities
+    escapeHTML(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     constructor() {
         this.currentSection = null;
         this.tooltip = document.getElementById('tooltip');
@@ -201,8 +211,8 @@ class KhmerCultureSite {
         `;
 
         modalContent.innerHTML = `
-            <h3 style="color: #000000; margin-bottom: 20px; font-size: 1.8rem;">${title}</h3>
-            <p style="color: #000000; line-height: 1.6; margin-bottom: 20px;">${content}</p>
+            <h3 style="color: #000000; margin-bottom: 20px; font-size: 1.8rem;">${this.escapeHTML(title)}</h3>
+            <p style="color: #000000; line-height: 1.6; margin-bottom: 20px;">${this.escapeHTML(content)}</p>
             <button style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Close</button>
         `;
 
